@@ -10,6 +10,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Unzip project
         run: unzip -q MikuApp_with_model.zip
+      - name: Fix compile error
+        run: sed -i '/gravity = Gravity.CENTER_HORIZONTAL/d' MikuApp/app/src/main/java/com/example/miku/MainActivity.kt
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
